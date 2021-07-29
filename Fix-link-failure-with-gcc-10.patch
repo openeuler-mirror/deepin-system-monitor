@@ -1,0 +1,53 @@
+From cf73455412549e14f1ff8a01925964f1e7896eaf Mon Sep 17 00:00:00 2001
+From: weidong <weidong@uniontech.com>
+Date: Tue, 3 Aug 2021 19:12:51 +0800
+Subject: [PATCH] Fix link failure with gcc-10
+
+---
+ src/process/desktop_entry_stat.cpp | 2 +-
+ src/process/process_stat.cpp       | 2 +-
+ src/process/system_stat.cpp        | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/process/desktop_entry_stat.cpp b/src/process/desktop_entry_stat.cpp
+index d2bedc6..e0a8c9c 100644
+--- a/src/process/desktop_entry_stat.cpp
++++ b/src/process/desktop_entry_stat.cpp
+@@ -35,7 +35,7 @@ DCORE_USE_NAMESPACE
+ 
+ static const int kUpdateInterval = 1000 * 300; // 5 minutes interval
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+ };
+diff --git a/src/process/process_stat.cpp b/src/process/process_stat.cpp
+index e68052e..cb161b0 100644
+--- a/src/process/process_stat.cpp
++++ b/src/process/process_stat.cpp
+@@ -42,7 +42,7 @@
+ #define PROC_FD_NAME_PATH       "/proc/%u/fd/%s"
+ #define PROC_SCHEDSTAT_PATH     "/proc/%u/schedstat"
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+ };
+diff --git a/src/process/system_stat.cpp b/src/process/system_stat.cpp
+index cc7b359..78060f3 100644
+--- a/src/process/system_stat.cpp
++++ b/src/process/system_stat.cpp
+@@ -49,7 +49,7 @@
+ 
+ #define MAX_NAME_LEN 128
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+ };
+-- 
+2.20.1
+
