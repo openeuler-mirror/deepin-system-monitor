@@ -1,11 +1,12 @@
 Name:           deepin-system-monitor
 Version:        5.6.11.13
-Release:        2
+Release:        3
 Summary:        A more user-friendly system monitor
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-system-monitor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz	
 Patch0:		Fix-link-failure-with-gcc-10.patch
+Patch1:         modify-QPainterPath-error.patch
 
 BuildRequires:  qt5-devel
 BuildRequires:  cmake
@@ -28,6 +29,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 BuildRequires:  deepin-gettext-tools 
 BuildRequires:  libicu-devel
+BuildRequires:  qt5-qtbase-private-devel
 Recommends:     deepin-manual
 
 %description
@@ -58,6 +60,9 @@ popd
 %{_datadir}/polkit-1/actions/com.deepin.pkexec.deepin-system-monitor.policy
 
 %changelog
+* Tue Feb 08 2022 liweigang <liweiganga@uniontech.com> - 5.6.11.13-3
+- fix build error
+
 * Thu Jul 29 2021 weidong <weidong@uniontech.com> - 5.6.11.13-2
 - Fix gcc10.3 compilation deepin-system-monitor failed 
 
