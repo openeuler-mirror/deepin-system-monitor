@@ -1,0 +1,99 @@
+diff --color -Naur a/src/compact_disk_monitor.h b/src/compact_disk_monitor.h
+--- a/src/compact_disk_monitor.h	2022-02-08 14:27:14.753304976 +0800
++++ b/src/compact_disk_monitor.h	2022-02-08 14:29:42.327456389 +0800
+@@ -25,6 +25,7 @@
+ #define COMPACTDISKMONITOR_H
+ 
+ #include <DApplicationHelper>
++#include <QPainterPath>
+ #include <QWidget>
+ 
+ DWIDGET_USE_NAMESPACE
+diff --color -Naur a/src/compact_memory_monitor.cpp b/src/compact_memory_monitor.cpp
+--- a/src/compact_memory_monitor.cpp	2022-02-08 14:27:14.753304976 +0800
++++ b/src/compact_memory_monitor.cpp	2022-02-08 14:50:18.537669887 +0800
+@@ -28,6 +28,7 @@
+ #include <DStyle>
+ #include <QDebug>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QtMath>
+ 
+ #include "compact_memory_monitor.h"
+diff --color -Naur a/src/compact_network_monitor.h b/src/compact_network_monitor.h
+--- a/src/compact_network_monitor.h	2022-02-08 14:27:14.753304976 +0800
++++ b/src/compact_network_monitor.h	2022-02-08 14:31:55.231230634 +0800
+@@ -25,6 +25,7 @@
+ #define COMPACTNETWORKMONITOR_H
+ 
+ #include <DApplicationHelper>
++#include <QPainterPath>
+ #include <QWidget>
+ 
+ DWIDGET_USE_NAMESPACE
+diff --color -Naur a/src/cpu_monitor.h b/src/cpu_monitor.h
+--- a/src/cpu_monitor.h	2022-02-08 14:27:14.753304976 +0800
++++ b/src/cpu_monitor.h	2022-02-08 14:28:01.351305810 +0800
+@@ -32,6 +32,7 @@
+ #include <QVBoxLayout>
+ #include <QWidget>
+ #include <QPropertyAnimation>
++#include <QPainterPath>
+ 
+ DWIDGET_USE_NAMESPACE
+ 
+diff --color -Naur a/src/disk_monitor.h b/src/disk_monitor.h
+--- a/src/disk_monitor.h	2022-02-08 14:27:14.753304976 +0800
++++ b/src/disk_monitor.h	2022-02-08 14:29:23.676121730 +0800
+@@ -25,6 +25,7 @@
+ #define DISKMONITOR_H
+ 
+ #include <DApplicationHelper>
++#include <QPainterPath>
+ #include <QWidget>
+ 
+ DWIDGET_USE_NAMESPACE
+diff --color -Naur a/src/gui/base_header_view.cpp b/src/gui/base_header_view.cpp
+--- a/src/gui/base_header_view.cpp	2022-02-08 14:27:14.761304620 +0800
++++ b/src/gui/base_header_view.cpp	2022-02-08 14:28:59.121028043 +0800
+@@ -7,6 +7,7 @@
+ #include <QDebug>
+ #include <QPaintEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QtMath>
+ 
+ #include "base_header_view.h"
+diff --color -Naur a/src/memory_monitor.cpp b/src/memory_monitor.cpp
+--- a/src/memory_monitor.cpp	2022-02-08 14:27:14.753304976 +0800
++++ b/src/memory_monitor.cpp	2022-02-08 14:30:17.758244618 +0800
+@@ -28,6 +28,7 @@
+ #include <DStyle>
+ #include <QDebug>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QtMath>
+ #include <QPropertyAnimation>
+ 
+diff --color -Naur a/src/network_monitor.h b/src/network_monitor.h
+--- a/src/network_monitor.h	2022-02-08 14:27:14.753304976 +0800
++++ b/src/network_monitor.h	2022-02-08 14:28:28.142223165 +0800
+@@ -27,6 +27,7 @@
+ #include <DApplicationHelper>
+ #include <QIcon>
+ #include <QWidget>
++#include <QPainterPath>
+ 
+ DWIDGET_USE_NAMESPACE
+ 
+diff --color -Naur a/src/utils.cpp b/src/utils.cpp
+--- a/src/utils.cpp	2022-02-08 14:27:14.753304976 +0800
++++ b/src/utils.cpp	2022-02-08 14:33:06.529286181 +0800
+@@ -39,6 +39,7 @@
+ #include <QImageReader>
+ #include <QLayout>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QPixmap>
+ #include <QStandardPaths>
+ #include <QString>
