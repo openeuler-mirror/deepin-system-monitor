@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  1
+%define pkgrelease  2
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -15,6 +15,7 @@ Summary:        A more user-friendly system monitor
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/deepin-system-monitor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:         0001-procps-ng-update-4.0.0.patch
 
 BuildRequires:  qt5-devel
 BuildRequires:  cmake
@@ -24,7 +25,7 @@ BuildRequires:  dtkcore-devel
 BuildRequires:  pkgconfig(dtkgui)
 # BuildRequires:  pkgconfig(dtkwm)
 
-BuildRequires:  pkgconfig(libprocps)
+BuildRequires:  pkgconfig(libproc-2)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-util)
 BuildRequires:  pkgconfig(x11)
@@ -58,7 +59,7 @@ Recommends:     deepin-manual
 %{summary}.
 
 %prep
-%autosetup
+%autosetup -p1
 # %setup -q
 ####sed -i 's|lrelease|lrelease-qt5|' translations/translate_generation.sh
 
@@ -104,6 +105,9 @@ fi
 %{_datadir}/deepin-manual/manual-assets/application/deepin-system-monitor/system-monitor/*
 
 %changelog
+* Fri Nov 11 2022 liweigang <liweiganga@uniontech.com> - 5.8.11-2
+- feat: procps-ng update 4.0.0
+
 * Tue Jul 19 2022 konglidong <konglidong@uniontech.com> - 5.8.11-1
 - update to 5.8.11
 
