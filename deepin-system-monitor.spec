@@ -1,5 +1,5 @@
-%global debug_package   %{nil}
-%define pkgrelease  2
+##%global debug_package   %{nil}
+%define pkgrelease  3
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -105,6 +105,9 @@ fi
 %{_datadir}/deepin-manual/manual-assets/application/deepin-system-monitor/system-monitor/*
 
 %changelog
+* Wed Dec 21 2022 liweigang <liweiganga@uniontech.com> - 5.8.11-3
+- enable debuginfo for fix strip
+
 * Fri Nov 11 2022 liweigang <liweiganga@uniontech.com> - 5.8.11-2
 - feat: procps-ng update 4.0.0
 
