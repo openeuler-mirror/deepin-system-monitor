@@ -1,5 +1,5 @@
 ##%global debug_package   %{nil}
-%define pkgrelease  3
+%define pkgrelease  4
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -25,7 +25,7 @@ BuildRequires:  dtkcore-devel
 BuildRequires:  pkgconfig(dtkgui)
 # BuildRequires:  pkgconfig(dtkwm)
 
-BuildRequires:  pkgconfig(libproc-2)
+BuildRequires:  procps-ng-devel
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-util)
 BuildRequires:  pkgconfig(x11)
@@ -105,6 +105,9 @@ fi
 %{_datadir}/deepin-manual/manual-assets/application/deepin-system-monitor/system-monitor/*
 
 %changelog
+* Fri Feb 10 2023 liweiganga <liweiganga@uniontech.com> - 5.8.11-4
+- feat: update changes due to procps-ng upgrade
+
 * Wed Dec 21 2022 liweigang <liweiganga@uniontech.com> - 5.8.11-3
 - enable debuginfo for fix strip
 
