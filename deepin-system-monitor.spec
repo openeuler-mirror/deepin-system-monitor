@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  6
+%define pkgrelease  1
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -8,7 +8,7 @@
 %endif
 
 Name:           deepin-system-monitor
-Version:        5.8.11
+Version:        5.8.28
 
 Release:        %{specrelease}
 Summary:        A more user-friendly system monitor
@@ -17,7 +17,7 @@ URL:            https://github.com/linuxdeepin/deepin-system-monitor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         0001-procps-ng-update-4.0.0.patch
 Patch1:         0002-feat-fix-strip.patch
-Patch2:		0003-Fix-incomplete-display-of-the-system-monitor-when-th.patch
+#Patch2:		0003-Fix-incomplete-display-of-the-system-monitor-when-th.patch
 
 BuildRequires:  qt5-devel
 BuildRequires:  cmake
@@ -107,6 +107,9 @@ fi
 %{_datadir}/deepin-manual/manual-assets/application/deepin-system-monitor/system-monitor/*
 
 %changelog
+* Mon Apr 10 2023 liweiganga <liweiganga@uniontech.com> - 5.8.28-1
+- update: update to 5.8.28
+
 * Thu Apr 06 2023 yangxianzhao <yangxianzhao@uniontech.com> - 5.8.11-6
 - Fix incomplete display of the system monitor when the resolution is 1020 * 768
 
