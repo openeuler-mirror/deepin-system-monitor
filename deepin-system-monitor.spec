@@ -1,5 +1,5 @@
 %global debug_package   %{nil}
-%define pkgrelease  5
+%define pkgrelease  6
 %if 0%{?openeuler}
 %define specrelease %{pkgrelease}
 %else
@@ -17,6 +17,7 @@ URL:            https://github.com/linuxdeepin/deepin-system-monitor
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         0001-procps-ng-update-4.0.0.patch
 Patch1:         0002-feat-fix-strip.patch
+Patch2:         fix-clang.patch
 
 BuildRequires:  qt5-devel
 BuildRequires:  cmake
@@ -106,6 +107,9 @@ fi
 %{_datadir}/deepin-manual/manual-assets/application/deepin-system-monitor/system-monitor/*
 
 %changelog
+* Tue Jun 20 2023 yoo <sunyuechi@iscas.ac.cn> - 5.8.11-6
+- fix clang build error
+
 * Wed Mar 15 2023 liweiganga <liweiganga@uniontech.com> - 5.8.11-5
 - feat: fix strip
 
