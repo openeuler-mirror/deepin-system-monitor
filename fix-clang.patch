@@ -1,0 +1,24 @@
+diff -u -r deepin-system-monitor-5.8.11/src/lscpu/include/strutils.h deepin-system-monitor-5.8.11/src/lscpu/include/strutils.h
+--- deepin-system-monitor-5.8.11/src/lscpu/include/strutils.h	2021-07-06 17:48:04.000000000 +0800
++++ deepin-system-monitor-5.8.11/src/lscpu/include/strutils.h	2023-06-15 21:30:51.000000000 +0800
+@@ -117,7 +117,7 @@
+ 	nsz = strlen(newstr);
+ 
+ 	if (nsz > osz)
+-		str = realloc(str, nsz + 1);
++		str = (char *)realloc(str, nsz + 1);
+ 	if (str)
+ 		memcpy(str, newstr, nsz + 1);
+ 	return str;
+diff -u -r deepin-system-monitor-5.8.11/src/lscpu/include/xalloc.h deepin-system-monitor-5.8.11/src/lscpu/include/xalloc.h
+--- deepin-system-monitor-5.8.11/src/lscpu/include/xalloc.h	2021-07-06 17:48:04.000000000 +0800
++++ deepin-system-monitor-5.8.11/src/lscpu/include/xalloc.h	2023-06-15 21:28:09.000000000 +0800
+@@ -127,7 +127,7 @@
+ 	char *name;
+ 	size_t sz = get_hostname_max() + 1;
+ 
+-	name = xmalloc(sizeof(char) * sz);
++	name = (char*)xmalloc(sizeof(char) * sz);
+ 	if (gethostname(name, sz) != 0) {
+ 		free(name);
+ 		return NULL;
